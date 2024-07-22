@@ -51,3 +51,7 @@
   * [3-data-visualize-groupchat](./3-data-visualize-groupchat.ipynb)
 
   * [4-nested-chat](./4-nested-chat.ipynb)
+
+> [!Note]
+> 일부 노트북은 실행 중에 사용자에게 피드백을 구할 수 있음. 이 때 응답을 해야 진행됨.
+> 분당 토큰 수 제한으로 retry로직이 실행되면 시간이 수분 이상 소요될 수 있음. 
