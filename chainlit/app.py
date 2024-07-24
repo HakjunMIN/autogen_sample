@@ -92,18 +92,19 @@ config_list = config_list_from_json(env_or_file="../OAI_CONFIG_LIST.json")
 
 assistant = ChainlitAssistantAgent(
         "assistant", llm_config={"config_list": config_list}, 
-        system_message="You are a helpful assistant. Once you are asked to provide stock information, please use yfinance to fetch the data. say TERMINATE at the end of the conversation to end the chat.",
+        system_message="You are a helpful assistant. Once you are asked to provide stock information, please use yfinance to fetch the data.",
         human_input_mode="NEVER"
     )
 
 user_proxy = ChainlitUserProxyAgent(
         "user_proxy",
+        system_message = "You are a user proxy. Save the code as `.py` then Execute the code written by the assistant and report the result",
         code_execution_config={
             "work_dir": "workspace",
-            "use_docker": False,
+            "use_docker": True,
         },
-        human_input_mode="NEVER",
-        max_consecutive_auto_reply=3,
+        human_input_mode="TERMINATE",
+        max_consecutive_auto_reply=10,
         is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("TERMINATE"),
     )
 

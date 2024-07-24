@@ -7,3 +7,4 @@ OAI_CONFIG_LIST.json
 coding1
 groupchat
 chainlit/__pycache__/
+chainlit/workspace
