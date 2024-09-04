@@ -9,3 +9,4 @@ groupchat
 chainlit/__pycache__/
 chainlit/workspace
 temp*.*
+.vscode
